@@ -1,0 +1,31 @@
+<auto-array>
+  <auto serialization="custom">
+    <auto>
+      <date>2019-10-16 20:47:42.399 UTC</date>
+      <default>
+        <brojVrata>5</brojVrata>
+        <godište>2005</godište>
+        <datumProizvodnje>2019-10-16 20:47:42.292 UTC</datumProizvodnje>
+        <model>320E</model>
+        <motor>
+          <zapremina>1.998</zapremina>
+          <snaga>222</snaga>
+          <serijskiBroj>sdgsdkjgkl</serijskiBroj>
+          <tip>DIZEL</tip>
+        </motor>
+      </default>
+    </auto>
+  </auto>
+  <auto serialization="custom">
+    <auto>
+      <date>2019-10-16 20:47:42.399 UTC</date>
+      <default>
+        <brojVrata>5</brojVrata>
+        <godište>2006</godište>
+        <datumProizvodnje>2019-10-16 20:47:42.292 UTC</datumProizvodnje>
+        <model>Astra</model>
+        <motor reference="../../../../auto/auto/default/motor"/>
+      </default>
+    </auto>
+  </auto>
+</auto-array>
