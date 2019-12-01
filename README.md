@@ -83,6 +83,36 @@
 
 
 
+<h1 align = "center"> Kolekcije podataka,Paketi </h1>
+
+<p align="center">
+  <img width="600" height="200" src="https://docs.swift.org/swift-book/_images/CollectionTypes_intro_2x.png">
+</p>
+
+<p>
+
+## Paketi
+###### Način za hijerarhijsko organizovanje programa u module. <br /> CLASSPATH environment varijabla: Predstavlja spisak foldera i JAR arhiva gde VM traži klasu koja se koristi. Ako CLASSPATH ne postoji, podrazumevaju se tekući direktorijum i standardne Java biblioteke.A ako CLASSPATH postoji, mora da sadrži i tekući direktorijum (standardne Java biblioteke se podrazumevaju). <br /> JAR arhive: klasičan ZIP format koji sadrži i folder META-INF u kojem je najbitnija datoteka manifest.mf(verziju,ime kreatora,ime glavne klase ,ClassPath )
+  
+## Klasa Object
+###### Sve Java klase implicitno nasleđuju klasu Object <br /> Reprezentativne metode: equals(o),toString(),hashCode(),getClass()
+
+## Wrapper klase
+###### Za sve primitivne tipove postoje odgovarajuće klase: int 🡪 Integer, long 🡪 Long, boolean 🡪 Boolean
+
+## Autoboxing i unboxing
+###### Ako metoda prima Integer kao parametar, može da se prosledi i int, odn. promenljivoj tipa Integer može da se dodeli vrednost promenljive tipa int.Radi i u obrnutom pravcu – promenljivoj tipa int može da se dodeli vrednost promenljive tipa Integer.
+
+## Metode sa promenljivim brojem parametara
+###### Ako su parametri reference na objekte neke klase, a znajući da sve klasenasleđuju klasu Object, dovoljno je definisati da metoda prima različit broj parametara tipa Object: void f2(Object... params)
+
+## Enumeracije
+###### Java donosi dodatne osobine enumeracijama. Enumeracije više ne predstavljaju samo celobrojne nabrojive tipove, već mogu da imaju konstruktore, atribute i metode. <br /> Spisak vrednosti enumeracije se dobija pozivom metode values().
+
+
+
+
+</p>
 
 
 
