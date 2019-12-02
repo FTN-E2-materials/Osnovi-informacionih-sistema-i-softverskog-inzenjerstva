@@ -1,4 +1,5 @@
 
+
 <h1 align="center"> Uvod u OOP </h1>
 
 <p align="center">
@@ -114,7 +115,34 @@
 
 </p>
 
+<h1 align="center"> Ulazno izlazni podsistem </h1>
 
+<p align="center">
+  <img width="600" height="300" src="https://www.trzcacak.rs/myfile/full/295-2950247_laptop-image-transparent-desktop-frame-png.png">
+</p>
+
+<p>
+  
+###### Standardna biblioteka za ulazno/izlazne operacije. <br /> Izvorišta/odredišta: memorija, fajl sistem, mrežne konekcije. <br /> Oslanja se na tokove (streams) i čitače/pisače (reader/writer) a nezavisno od tokova/čitača postoji i RandomAccessFile klasa i File klasa.
+
+## File klasa
+###### Sluzi za manipulaciju datotekama i direktorijumima: kreiranje, brisanje, pristup datoteka i direktorijuma <br /> Kao i za modifikaciju naziva i atributa datoteka i direktorijuma
+
+## Tokovi (streams)
+###### Bazirani su na bajtovima( prenos jednog ili niza bajtova ) tj sluze sa prenos podataka ( datoteke, niz bajtova ...) . <br /> Osmišljeni kao mehanizam koji omogućuje ujedinjen pristup podacima. <br /> Koncept filtera donosi dodatnu funkcionalnost tokovima : prenos primitivnih tipova,baferizovan prenos podataka, prenos objekata,formatiranje podataka.
+
+## Čitači/pisači (readers/writers)
+
+###### Ispravljaju problem sa tokovima – slabu podršku Unicode rasporedu jer tokovi ne prenose dobro Unicode stringove a i poseban problem predstavljaju različite hardverske platforme (little-endian, big-endian). <br /> Čitači/pisači ne zamenjuju tokove – oni ih dopunjuju. <br /> Čitači/pisači se koriste kada je potrebno preneti Unicode stringove ili karaktere – u ostalim situacijama koriste se tokovi.<br /> Omogućuju prenos karaktera iz/u: datoteke, druge nizove karaktera, stringove. <br />
+
+### Zaključak
+###### Podaci se čitaju iz ulaznih tokova, a pišu u izlazne tokove. Iz programa se retko radi direktno sa bajtovima, zato se tokovi ugrađuju u Filter klase koje imaju odgovarajuće metode za čitanje/pisanje tj. zato imamo tokove objekata, tokove primitivnih tipova itd. a ako radimo sa karakterima/stringovima, koristimo čitače i pisače
+
+
+## Serijalizacija objekata
+###### Je prevodjenje objekta u niz bajtova i njegova rekonstrukcija iz niza u "ziv" objekat.<br /> Serijalizovan niz bajtova se moze snimiti u datoteku ili poslati preko mreze - i jedno i drugo upotrebom objekata. <br /> Da bi se neki objekat serijalizovao: potrebno je da implementira java.io.Serializable interfejs i da su atributi i parametri metoda takodje serijalizabilni. <br /> Primitivni tipovi su serijalizabilni kao i vecina biblioteckih klasa. <br> <br /> U javi postoji kljucna rec *transient* koja se moze staviti uz atribut, a ona oznacava da se vrednost atributa nece preneti prilikom serijalizacije. A ako ovu kljucnu rec stavimo uz atribut koji je primitivni tip,po rekonstrukciji objekta, u njemu ce biti podrazumevana vrednost za taj tip,a null literal za reference.
+
+</p>
 
 
 
