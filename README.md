@@ -1,5 +1,4 @@
 
-
 <h1 align="center"> Uvod u OOP </h1>
 
 <p align="center">
@@ -146,6 +145,45 @@
 
 
 
+<h1 align="center"> GUI u Javi [ Swing ] </h1>
+<p align="center">
+  <img width="1000" height="400" src="https://i.ytimg.com/vi/SpKANTHXwmo/maxresdefault.jpg">
+</p>
+
+<br>
+<h1 align="center"> Uvod u GUI </h1>
+
+<p>
+  
+###### Korisnički interfejs je upravljan događajima.<br /> Swing je napisan u Javi, pluggable look-and-feel, veliki broj komponenti, kompletna podrska za Unicode standard....
+
+## Event Driven model
+###### Program se ne izvrsava linearno(od gore prema dole) nego se pisu procedure koje se izvrsavaju po pojavi nekog dogadjaja korisnickog interfejsa( klik misa,pritisak tastera i sl. ). <br /> Svaka akcija nad komponentama korisnickog interfejsa izaziva generisanje objekata klasa naslednica *Event* klase a ti objekti se prosledjuju objektima klasa naslednice EventListener klase,koje "osluskuju" dogadjaje. 
+
+</p>
+<br>
+
+<h1 align="center"> Prostorni raspored i dogadjaji </h1>
+<p>
+
+## Upravljanje prostornim rasporedom
+###### Cilj je obezbediti konzistentan prikaz komponenti: pri promeni OS, jezika, rezolucije, fonta, geometrije kontejnera.
+### Vrste upravljaca
+ - BorderLayout ( slaze komponente po stranama sveta)
+ - FlowLayout ( slaze komponente po horizontali )
+ - GridLayout ( rasporedjuje komponente u mrezu sa zadatim brojem redova i kolona )
+ - GridBagLayout ( slican kao GridLayout samo sto komponente mogu zauzimati vise celija )
+ - GroupLayout
+ - ...
+
+## Adapter klase
+###### One su uvedene za sve xxxListener interfejse koje imaju vise od jedne metode, sa ciljem da olaksaju pisanje reakcije na dogadjaje tj one implementiraju Listener interfejse i obezbedjuju podrazumevanje reakcije na dogadjaje.
+
+## EVD - Event Dispatching Thread
+###### Svaka awt ili swing aplikacija pocinje sa 2 niti , u jednoj se izvrsava main metoda a u drugoj se obradjuju dogadjaji(EDT).Dogadjaji se obradjuju serijski i bitno je da se slanje svih dogadjaja obavlja iz EDT.<br /> Problem je ako se iz listenera startuje dugotrajan posao sa potrebom da se azurira stanje GUI komponenti desava se da se "zamrzava" ekran. <br /> Najbolje rešenje je upotreba SwingWorker klase koja resava taj problem, samo je potrebno naslediti SwingWorker i redefinisati metode.
+
+
+</p>
 
 
 
