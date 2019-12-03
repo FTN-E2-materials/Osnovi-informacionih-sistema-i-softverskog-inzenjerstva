@@ -109,7 +109,8 @@
 ## Enumeracije
 ###### Java donosi dodatne osobine enumeracijama. Enumeracije više ne predstavljaju samo celobrojne nabrojive tipove, već mogu da imaju konstruktore, atribute i metode. <br /> Spisak vrednosti enumeracije se dobija pozivom metode values().
 
-
+## Tipizirane kolekcije 
+###### Omogucuju smestanje samo jednog tipa podatka u kolekciju !
 
 
 </p>
