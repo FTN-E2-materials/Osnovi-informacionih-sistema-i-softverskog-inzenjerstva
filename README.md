@@ -1,4 +1,5 @@
 
+
 <h1 align="center"> Uvod u OOP </h1>
 
 <p align="center">
@@ -33,6 +34,10 @@
 
 ## Ključna reč static
 ###### Definiše statičke atribute i metode a one postoje i bez kreiranje objekta zato im se može pristupiti preko imena klase. <br /> Statički atributi imaju istu vrednost u svim objektima, ako promenim statički atribut u jednom objektu, on će se promeniti i kod svih ostalih objekata. <br> <br />Statički blok se izvršava samo jednom, prilikom prvog korišćenja klase.Unutar statičkog bloka može se pristupati samo statičkim atributima i mogu se pozivati samo statičke metode.
+
+## Memorija
+ - Na **steku** se nalaze **reference** !
+ - Na **heap-u** se nalaze **objekti**
 
 </p>
 
@@ -112,6 +117,9 @@
 ## Tipizirane kolekcije 
 ###### Omogucuju smestanje samo jednog tipa podatka u kolekciju !
 
+## Shallow copy
+###### Java podrzava shallow copy tako sto u klasi Object ima metodu clone() ali ona je protected,zbog toga je potrebno implementirati interfejs Cloneable i redefinisati clone() 
+
 
 </p>
 
@@ -138,6 +146,8 @@
 ### Zaključak
 ###### Podaci se čitaju iz ulaznih tokova, a pišu u izlazne tokove. Iz programa se retko radi direktno sa bajtovima, zato se tokovi ugrađuju u Filter klase koje imaju odgovarajuće metode za čitanje/pisanje tj. zato imamo tokove objekata, tokove primitivnih tipova itd. a ako radimo sa karakterima/stringovima, koristimo čitače i pisače
 
+## Skener 
+###### Klasa Scanner služi za unos stringova i primitivnih tipova iz tekstualnih ulaza.<br /> Ona radi kao jednostavan parser teksta koji je u stanju da iz tekstualnog ulaza izdvoji stringove po nekom obrascu.<br /> Nakon izdvajanja stringa, u stanju je da konvertuje taj string u traženi primitivni tip.
 
 ## Serijalizacija objekata
 ###### Je prevodjenje objekta u niz bajtova i njegova rekonstrukcija iz niza u "ziv" objekat.<br /> Serijalizovan niz bajtova se moze snimiti u datoteku ili poslati preko mreze - i jedno i drugo upotrebom objekata. <br /> Da bi se neki objekat serijalizovao: potrebno je da implementira java.io.Serializable interfejs i da su atributi i parametri metoda takodje serijalizabilni. <br /> Primitivni tipovi su serijalizabilni kao i vecina biblioteckih klasa. <br> <br /> U javi postoji kljucna rec *transient* koja se moze staviti uz atribut, a ona oznacava da se vrednost atributa nece preneti prilikom serijalizacije. A ako ovu kljucnu rec stavimo uz atribut koji je primitivni tip,po rekonstrukciji objekta, u njemu ce biti podrazumevana vrednost za taj tip,a null literal za reference.
@@ -161,6 +171,22 @@
 ## Event Driven model
 ###### Program se ne izvrsava linearno(od gore prema dole) nego se pisu procedure koje se izvrsavaju po pojavi nekog dogadjaja korisnickog interfejsa( klik misa,pritisak tastera i sl. ). <br /> Svaka akcija nad komponentama korisnickog interfejsa izaziva generisanje objekata klasa naslednica *Event* klase a ti objekti se prosledjuju objektima klasa naslednice EventListener klase,koje "osluskuju" dogadjaje. 
 
+
+## Dodavanje komponenti u prozor
+###### Prilikom konstrukcije objekta klase naslednice JFrame dodaju se komponente na formu, nije dovoljno da se samo kreira komponenta nego se ona mora dodati na formu (metodom add...) !
+
+## Kontejneri najvišeg nivoa (top-level) u Swing-u
+ - JFrame - koristi se za implementaciju glavnog prozora aplikacije. Može imati menije, toolbarove itd.
+ - JDialog - Nasleđuje se iz java.awt.Dialog i koristi se za kreiranje dijaloga aplikacije. Za kreiranje standardnih dijaloga koristi se klasa JOptionPane.
+ - JWindow - prozor koji za razliku od JFrame-a nema naslov (titlebar) i sistemske akcije za manipulaciju prozorima
+ - JApplet - klasa za kreiranje apleta u swingu
+
+
+## Razlika u konstrukciji GUI-ja za Windows i Java aplikacije
+###### Windows aplikacije koriste tzv. resurse za definisanje izgleda korisničkog interfejsa a Java aplikacije svoj korisnički interfejs grade programski, najčešće u toku inicijalizacije prozora.
+
+
+
 </p>
 <br>
 
@@ -170,8 +196,8 @@
 ## Upravljanje prostornim rasporedom
 ###### Cilj je obezbediti konzistentan prikaz komponenti: pri promeni OS, jezika, rezolucije, fonta, geometrije kontejnera.
 ### Vrste upravljaca
- - BorderLayout ( slaze komponente po stranama sveta)
- - FlowLayout ( slaze komponente po horizontali )
+ - BorderLayout ( slaze komponente po stranama sveta (podrazumevani upravljac za JFrame) )
+ - FlowLayout ( slaze komponente po horizontali (podrazumevani upravljac za JPanel) )
  - GridLayout ( rasporedjuje komponente u mrezu sa zadatim brojem redova i kolona )
  - GridBagLayout ( slican kao GridLayout samo sto komponente mogu zauzimati vise celija )
  - GroupLayout
@@ -188,6 +214,47 @@
 
 <br>
 <br>
+
+<h1 align="center"> Komponente u Swingu </h1>
+
+<p align="center">
+  <img width="600" height="400" src="http://www.eeng.dcu.ie/~ee553/ee402notes/html/figures/JDialogExample.gif">
+</p>
+<br>
+
+<p>
+
+## JComboBox
+###### Karakteriše je prisustvo dva koncepta: koncept *modela podataka* i koncept *renderera*. 
+### JComboBox model 
+###### Ako je potrebno modelovati podatke na specifičan način, implementira se interfejs ComboBoxModel i redefinisu potrebne metode.<br /> ComboBoxModel je uveden da bi se na poseban nacin predstavili nasi podaci.
+### JComboBox renderer
+###### Ako je potrebno prikazati podatke iz ćelije na specifičan način, implementira se interfejs ListCellRenderer. <br /> Renderer je vezan za stavku koja se prikazuje.
+
+## JList
+###### Karakteriše je prisustvo dva koncepta: koncept *modela podataka* i koncept *renderera*. <br /> Isto kao i JComboBox samo se implementiraju drugaciji interfejsi.
+
+## JTabbedPane
+###### Reprezentuje sistem međusobno preklopljenih prozora do kojih se dolazi klikom po odgovarajućoj “kartici”. Kartice su reprezentovane panelima (JPanel) i dodaju se metodom add:
+
+## JTable
+###### Reprezentuje tabelu. Karakteriše je prisustvo tri koncepta: koncept *modela podataka*, koncept *editora* i koncept *renderera*.<br /> Ako je potrebno modelovati podatke na specifičan način, implementira se interfejs TableModel.<br /> Ako je potrebno prikazati podatke iz ćelije na specifičan način, implementira se interfejs TableCellRenderer. Renderer je vezan za kolonu. <br /> Ako je potrebno editovati podatke iz ćelije na specifičan način, implementira se interfejs TableCellEditor.Editor je vezan za kolonu
+
+## JTree
+###### Služi za hijerarhijski prikaz (stablo). Stablo se kreira dodavanjem čvorova, počev od prvog (root).<br /> Ako je potrebno modelovati podatke na specifičan način, implementira se interfejs TreeModel. <br /> Ako je potrebno prikazati podatke iz čvora na specifičan način, implementira se interfejs TreeCellRenderer.
+
+### Zakljucak
+###### Ako zelimo da modelujemo podatke implementiramo interfejs za odredjenu komponentu koja ima modelovanje <br /> Ako zelimo da prikazemo podatke implemntiramo intefejs koji ima renderovanje. <br /> A ako zelimo da menjamo podatke ( kod nekih komponenti je i to moguce) implementiramo interfejs koji nam omogucava editovanje.
+
+## Dijalozi 
+###### Služe za interakciju sa korisnikom. Mogu biti: modalni (ne može se preći na glavni ekran dok se ne ugasi dijalog) i nemodalni (može se preći na glavni ekran).<br /> Postoje predefinisani dijalozi (JOptionPane- uvek modalni) i dijalozi koje kreira korisnik (JDialog- modalnost zavisi od parametara konstruktora).
+
+## LookAndFeel
+###### Java poseduje mehanizam definisanja izgleda GUI komponenti.LookAndFeel mehanizam omogućuje promenu izgleda aplikacije bez restarta.
+
+
+</p>
+
 
 
 
