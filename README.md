@@ -169,7 +169,7 @@
 ###### Korisnički interfejs je upravljan događajima.<br /> Swing je napisan u Javi, pluggable look-and-feel, veliki broj komponenti, kompletna podrska za Unicode standard....
 
 ## Event Driven model
-###### Program se ne izvrsava linearno(od gore prema dole) nego se pisu procedure koje se izvrsavaju po pojavi nekog dogadjaja korisnickog interfejsa( klik misa,pritisak tastera i sl. ). <br /> Svaka akcija nad komponentama korisnickog interfejsa izaziva generisanje objekata klasa naslednica *Event* klase a ti objekti se prosledjuju objektima klasa naslednice EventListener klase,koje "osluskuju" dogadjaje. 
+###### Program se ne izvrsava linearno(od gore prema dole) nego se pisu procedure koje se izvrsavaju po pojavi nekog dogadjaja korisnickog interfejsa( klik misa,pritisak tastera i sl. ). <br /> Svaka akcija nad komponentama korisnickog interfejsa izaziva generisanje objekata klasa naslednica *Event* klase a ti objekti se prosledjuju objektima klasa naslednice EventListener klase,koje "osluskuju" dogadjaje. <br /> Swing komponente mogu imati razlicite eventListenere koje osluskuju dogadjaje u okruzenju. Zavisno od dogadjaja i tipa listenera mogu generisati event koji se prosledjuje metodi unutar listenera, a ona ce dalje reagovati na taj dogadjaj shodno implementaciji iste.
 
 
 ## Dodavanje komponenti u prozor
